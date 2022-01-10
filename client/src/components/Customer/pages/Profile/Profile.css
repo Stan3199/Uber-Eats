@@ -1,0 +1,130 @@
+.profile__main {
+	display: flex;
+	flex-direction: row;
+	padding: 0 40px;
+}
+
+.profile__photo__container {
+	flex: 0.2;
+}
+
+.profile__left__section {
+	flex: 0.2;
+}
+
+.profile__right__section {
+	flex: 0.8;
+	display: flex;
+	flex-direction: column;
+}
+
+.user__options {
+	display: flex;
+	flex-direction: row;
+	flex: 0.4;
+}
+.options__item {
+	padding-right: 40%;
+}
+.about__section {
+	flex: 0.6;
+}
+
+.profile__item {
+	display: flex;
+	padding-bottom: 10px;
+	align-items: center;
+}
+
+.profile__information {
+	flex: 0.8;
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	flex-wrap: wrap;
+	padding: 0 20px;
+}
+.profile__firstName {
+	padding: 0px 20px;
+}
+.profile__photo {
+	color: #eeeeee;
+	height: 200px !important;
+	width: 200px !important;
+}
+
+.profile__location {
+	display: flex;
+	flex-direction: column;
+	/* padding-top: 10px    ; */
+}
+
+.profile__edit {
+	padding-left: 20px;
+	cursor: pointer;
+}
+
+.profile__box__main {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background-color: white;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	width: 500px;
+	height: 550px;
+	border: 2px solid #000;
+	box-shadow: 24px;
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.photo__box__main {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background-color: white;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	width: auto;
+	height: auto;
+	border: 2px solid #000;
+	box-shadow: 24px;
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.profile__pic__img{
+	max-height: 300px;
+	width: 100%;
+}
+.upload__buttons {
+	width: 100%;
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+}
+.upload__buttons > label,
+.upload__buttons > span {
+	margin: 0 20px !important;
+}
+
+.form__element__container {
+	width: 100%;
+	/* margin: 20px;
+    padding: 20px; */
+}
+
+.profile__item > svg {
+	margin-right: 20px;
+}

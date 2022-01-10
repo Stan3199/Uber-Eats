@@ -1,0 +1,31 @@
+.sidebar__container {
+	display: flex;
+}
+
+.sidebar__box{
+    width: 335px;
+}
+
+.sidebar__user {
+	display: flex;
+	flex-direction: column;
+}
+.account_icon {
+	height: 50px !important;
+	width: 50px !important;
+    padding: 10px;
+}
+
+.sidebar__user >div{
+    padding: 2px;
+}
+
+.sidebar__row{
+    display: flex;
+    justify-content: space-between !important;
+}
+
+a{
+    text-decoration: none !important;
+    color: black !important;
+}

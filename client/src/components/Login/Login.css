@@ -1,0 +1,101 @@
+.login__main__container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	margin: 10% 0 10% 0;
+	justify-content: center;
+}
+.login__main {
+	height: 20%;
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.uber__logo {
+	margin-bottom: 60px;
+	width: 100%;
+}
+.login__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
+	font-family: sans-serif;
+}
+
+.welcome__text {
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 30px;
+	font-size: 30px;
+}
+
+.welcome__container {
+	font-size: 15px;
+	font-weight: 300;
+}
+
+.welcome__container > * {
+	width: 100%;
+}
+
+.next__button {
+	margin: 20px 0 !important;
+	background-color: #0d80d8 !important;
+	color: white !important;
+}
+
+.new_account__container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	/* position: absolute;
+    left: 50%; */
+}
+
+.create__account__redirect {
+	cursor: pointer;
+	color: #3e9920;
+}
+
+.email__pass__container {
+	display: flex;
+	flex-direction: column;
+}
+
+.email__pass__container > div {
+	margin-bottom: 15px;
+}
+
+.change__method{
+	color: #3e9920;
+}
+
+.toggle__mode__login{
+	display: flex;
+	flex-direction: row !important;
+	flex-wrap: nowrap;
+	justify-content: flex-start !important;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+	margin-bottom: 20px;
+}
+
+.toggle__button__container__login{
+	padding-right: 10px;
+}
+
+.toggle__button__login {
+	margin: 0 !important;
+	background-color: #EEEEEE;
+	padding:10px 20px;
+	border-radius: 60px;
+}
+
+.role__selected{
+	background-color: #3e9920 !important;
+	color: white;
+}

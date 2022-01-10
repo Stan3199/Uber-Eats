@@ -1,0 +1,11 @@
+.admin__main{
+    display: flex;
+}
+
+.sidebar__main__container{
+    flex: 0.13;
+}
+
+.admin__main >div:nth-child(2){
+    flex: 0.87;
+}

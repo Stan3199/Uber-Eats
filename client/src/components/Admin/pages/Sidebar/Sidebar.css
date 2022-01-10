@@ -1,0 +1,31 @@
+.uber__logo {
+	display: flex;
+	justify-content: center;
+}
+
+.sidebar__main {
+	padding: 30px !important;
+	display: flex;
+	flex-direction: column;
+}
+
+.sidebar__item {
+	display: flex;
+    align-items: center;
+    width: inherit;
+    font-size: 23px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.sidebar__item:hover{
+    color: green;
+}
+
+.icon{
+    margin-right: 20px;
+}
+
+a{
+    text-decoration: none;
+}

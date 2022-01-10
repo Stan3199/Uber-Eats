@@ -1,0 +1,52 @@
+.form-check-input {
+	display: none;
+}
+.MuiAccordionDetails-root{
+    padding-left: 0px !important;
+}
+.MuiAccordionSummary-root{
+    line-height: normal !important
+}
+.MuiAccordionSummary-root>div{
+    padding: 0px !important;
+    /* padding: 0px; */
+    margin: 0 !important;
+}
+.items__container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.item {
+	padding-right: 15px;
+}
+
+.item__main {
+	padding: 10px;
+	padding-bottom: 10px;
+	border-radius: 50px;
+	background-color: #eeeeee;
+	cursor: pointer;
+}
+
+.form-check-label {
+    line-height: 16px;
+	font-weight: 500;
+	font-size: 14px;
+	font-family: UberMoveText, sans-serif;
+	cursor: pointer;
+}
+
+.filter__sort__container > .form-check > .form-check-input {
+    padding-right: 40px;
+	display: block;
+}
+
+.form-check{
+    display: flex;
+    align-items: center;
+}
+
+.slider__container{
+	padding-left: 20px;
+}

@@ -1,0 +1,9 @@
+.landing-main{
+    display: flex;
+    flex-direction: column;
+    padding:0 40px;
+}
+.landing__content{
+    height: 30vh;
+    /* border: 1px solid red; */
+}

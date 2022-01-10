@@ -1,0 +1,12 @@
+.orderContent-main{
+    display: flex;
+    margin-top: 40px;
+}
+.filter__section{
+    flex: 0.18;
+    height: 100%;
+    padding-right: 0px;
+}
+.orderContent__content{
+    flex: 0.82;
+}

@@ -1,0 +1,159 @@
+.orders__main {
+	display: flex;
+	flex-direction: column;
+	margin: 80px 20px;
+}
+
+.orders__container {
+	display: flex;
+	flex-direction: column;
+}
+
+.orders__heading {
+	font-size: 58px;
+	margin-bottom: 40px;
+}
+
+.orders {
+	display: flex;
+	flex-direction: column;
+	padding: 40px 20px;
+}
+
+.user__name {
+	font-size: 28px;
+}
+
+.orders__categories {
+	display: flex;
+}
+.category__item {
+	display: flex;
+	width: 30%;
+	font-size: 30px;
+	cursor: pointer;
+	justify-content: center;
+	padding-top: 10px;
+}
+
+.selected__filter{
+	background-color: #EEEEEE;
+}
+
+.order__container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.order__options {
+	display: flex;
+	flex-direction: row;
+}
+.option {
+	padding: 0 20px;
+}
+.order__main__container {
+	margin-bottom: 20px;
+}
+
+.modal-cart-main__restaurant {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background-color: white;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	width: 500px;
+	height: auto;
+	border: 2px solid #000;
+	box-shadow: 24px;
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+}
+
+.receipt {
+	display: flex;
+	justify-content: center;
+	font-size: 28px;
+	font-weight: 500;
+	font-family: sans-serif;
+}
+
+.order__detail__main {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
+
+.total__order__bill {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: 35px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.order__items__main__container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-weight: 600;
+}
+
+.order__quantity__name {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: flex-start;
+}
+
+.order__quantity {
+	flex: 0.05;
+	font-size: 22px;
+}
+
+.order__details__main {
+	flex: 0.95;
+	font-size: 22px;
+}
+
+.dish__ingredients {
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 15px;
+	font-weight: 500;
+}
+
+.dish__ingredients > div:nth-child(1) {
+	font-size: 18px;
+	padding-bottom: 5px;
+	font-weight: 600;
+}
+.order__accept__reject {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	padding:0 10px;
+}
+
+.order__accept__reject>button{
+	margin: 0px 10px;
+}
+
+.order__update{
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.view__order{
+	cursor: pointer;
+}

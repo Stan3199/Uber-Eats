@@ -1,0 +1,27 @@
+.small__divider{
+    width: 90%;
+    display: flex;
+    align-self: flex-start;
+}
+
+.orders__main{
+    padding:20px 40px;
+}
+
+.order__body{
+    cursor: pointer;
+}
+
+.modal__total{
+    font-size: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.status__container{
+    padding: 5px 0;
+}
+
+.pagination__main__container{
+    margin-right: 50px;
+}

@@ -1,0 +1,162 @@
+.restaraunt-main {
+	padding: 0 40px;
+}
+.poster-main > img {
+	width: 100%;
+	height: 400px;
+	object-fit: cover;
+	padding-bottom: 20px;
+}
+
+.poster-main {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 40px;
+}
+
+.modal-main {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background-color: white;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	width: 676px;
+	height: 663px;
+	border: 2px solid #000;
+	box-shadow: 24px;
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+}
+
+.modal-main__new__order {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background-color: white;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	width: 376px;
+	height: 263px;
+	border: 2px solid #000;
+	box-shadow: 24px;
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+}
+.new__order__button {
+	flex: 0.2;
+	background-color: #000;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal__description__new__order {
+	flex: 0.8;
+}
+
+.modal__image__container {
+	flex: 0.4;
+	height: 258px;
+	width: 100%;
+}
+
+.modal__image__container > img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.modal__description {
+	flex: 0.4;
+	max-height: 400px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.modal__footer {
+	flex: 0.2;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.modal__icons {
+	flex: 0.3;
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.notempty:hover {
+	background: rgb(51, 51, 51);
+}
+.notempty {
+	background-color: black;
+	color: white;
+}
+
+.empty {
+	background-color: #eeeeee;
+	color: black;
+}
+
+.modal__select__add {
+	flex: 0.7;
+	width: 200px;
+	display: flex;
+	padding: 20px;
+}
+
+.modal__select__add > div:nth-child(1) {
+	flex: 0.9;
+	align-content: center;
+}
+
+.modal__select__add > div:nth-child(2) {
+	flex: 0.1;
+}
+
+.icon__container:hover {
+	background: #e2e2e2;
+}
+.icon__container {
+	background-color: #eeeeee;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.menu__categories__restaurant {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 0px;
+}
+.divider__restaurant {
+	margin-bottom: 40px !important;
+}
+
+.restaurant__name {
+	font-size: 34px;
+	font-weight: 600;
+	font-family: sans-serif;
+	padding-bottom: 10px;
+}
+
+.restaurant__description {
+	font-size: 18px;
+	font-weight: 100;
+}
