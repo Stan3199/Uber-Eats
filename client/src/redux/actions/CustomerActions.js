@@ -180,12 +180,10 @@ export const editDishToMenu = (formData, token) => async (dispatch) => {
 	try {
 		var instance = Axios.create();
 		instance.defaults.headers.common = {};
-		instance
-			.post(
-				localAddress + "restaurant/editDish",
-				{ formData },
-				{ headers: { authorization: "Bearer " + token } }
-			)
+		await instance
+			.post(localAddress + "restaurant/editDish", formData, {
+				headers: { authorization: "Bearer " + token },
+			})
 			.then((res) => {
 				console.log(res);
 				return true;

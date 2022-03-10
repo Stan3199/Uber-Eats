@@ -123,37 +123,25 @@ const setNewOrderStatus = async (req, res, next) => {
 const editDish = async (req, res, next) => {
 	try {
 		const dish = req.body;
+		console.log("dish>>>", dish);
 		let dishExists = await Dishes.findOne({ _id: dish._id });
 		if (!dishExists) {
 			throw new Error("No dish found");
 		}
 		Object.assign(dishExists, dish);
-		console.log(dishExists);
-		const s3 = new AWS.S3({
-			accessKeyId: "AKIA5AIAYSS4JYC7UMMB",
-			secretAccessKey: "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",
-		});
-		let deleteParams = {
-			Bucket: "ubereatsapp",
-			Key: dishExists.imageKey,
-		};
-		await s3.deleteObject(deleteParams, async (err, data) => {
-			console.log("after deleting......", data, err);
-		});
-		const fileContent = fs.readFileSync(req.file.path);
-		let addParams = {
-			Bucket: "ubereatsapp",
-			Key: "ubereats/Images/dishes/dish" + dishExists.name + ".jpg",
-			Body: fileContent,
-		};
-		await s3.upload(addParams, async (err, data) => {
-			console.log("adter deleting......", data, err);
-			dishExists.images = [];
-			dishExists.images.push(data.Location);
-			dishExists.imageKey = data.key;
-			await dishExists.save();
-			return res.send(200);
-		});
+		console.log(req.file);
+		req.file?.path &&
+			(await firebaseUploadFile(
+				req.file.path,
+				"Dishes/" + dish.restaurant_id + dish.name,
+				async (file) => {
+					dishExists.images = [];
+					dishExists.images.push(file[0].metadata.mediaLink);
+					dishExists.imageKey = file[0].metadata.id;
+				}
+			));
+		await dishExists.save();
+		return res.send(200);
 	} catch (err) {
 		const error = new HttpError(
 			"Couldn't set order state. Please try again Error: " + err.message,

@@ -79,6 +79,7 @@ export const AddMenuModal = (props) => {
 		await dispatch(addDishToMenu(formData, userData.token)).then(() => {
 			props.updateModal(false);
 			dispatch(getMenu(userData.userId, userData.token));
+			setnewDish({});
 		});
 	};
 
@@ -311,6 +312,7 @@ export const EditDishModal = (props) => {
 		formData.append("image", updateDish.imageFile);
 		formData.append("imageKey", updateDish.imageKey);
 		formData.append("_id", updateDish._id);
+		console.log(formData);
 		dispatch(editDishToMenu(formData, userData.token)).then(() => {
 			props.updateModal(false);
 			dispatch(getMenu(userData.userId, userData.token));
@@ -332,7 +334,6 @@ export const EditDishModal = (props) => {
 			["dish category"]: updateCuisine,
 		});
 	};
-	console.log(updateDish);
 	return (
 		<div>
 			<Modal
