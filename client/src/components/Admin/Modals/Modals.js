@@ -28,6 +28,7 @@ import {
 } from "../../../redux/actions/AdminActions";
 import { getUser } from "../../../redux/actions/UserActions";
 import { validateDateRange } from "@mui/lab/internal/pickers/date-utils";
+import swal from "sweetalert";
 export const AddMenuModal = (props) => {
 	const [newDish, setnewDish] = useState({});
 	const userData = useSelector((state) => state.user);
@@ -510,6 +511,15 @@ export const BasicDetailsModal = (props) => {
 
 	const handleSubmit = () => {
 		console.log(updatedBasicDetails);
+		if (
+			!updatedBasicDetails.description ||
+			!updatedBasicDetails.name ||
+			!updatedBasicDetails.timeFrom ||
+			!updatedBasicDetails.timeTo
+		) {
+			swal("Nope");
+			return;
+		}
 		dispatch(
 			updateBasicDetailsRest(
 				updatedBasicDetails,
@@ -559,7 +569,7 @@ export const BasicDetailsModal = (props) => {
 						<LocalizationProvider dateAdapter={AdapterDateFns}>
 							<TimePicker
 								label="From"
-								value={updatedBasicDetails.timeFrom}
+								value={new Date(updatedBasicDetails.timeFrom)}
 								onChange={(newValue) => {
 									setupdatedBasicDetails({
 										...updatedBasicDetails,
@@ -642,12 +652,27 @@ export const ContactDetailsModal = (props) => {
 			updateContactDetailsRest(
 				updatedContactDetails,
 				userData.userId,
-				userData.token
+				userData.token,
+				userData.deliveryFee
 			)
 		).then(async () => {
 			await dispatch(getUser(userData.userId, userData.token));
 			props.updateModal(false);
 		});
+	};
+
+	const handlePrice = (e) => {
+		if (e.target.value.length > 1 && e.target.value[0] == "0")
+			return setupdatedContactDetails({
+				...updatedContactDetails,
+				deliveryFee: 0,
+			});
+		e.target.value >= 0 &&
+			e.target.value < 40 &&
+			setupdatedContactDetails({
+				...updatedContactDetails,
+				deliveryFee: e.target.value,
+			});
 	};
 
 	return (
@@ -666,6 +691,7 @@ export const ContactDetailsModal = (props) => {
 						Contact number
 					</InputLabel>
 					<TextField
+						style={{ paddingBottom: "12px" }}
 						type="number"
 						color="primary"
 						variant="filled"
@@ -674,6 +700,20 @@ export const ContactDetailsModal = (props) => {
 						onChange={(e) => handleContactNumber(e.target.value)}
 						focused
 					/>
+					<InputLabel id="demo-simple-select-label">
+						Delivery Fee
+					</InputLabel>
+					<TextField
+						type="number"
+						color="primary"
+						variant="filled"
+						label="Price ($)"
+						placeholder="MAX $40.00"
+						value={updatedContactDetails.deliveryFee}
+						onChange={handlePrice}
+						focused
+					/>
+					{console.log(updatedContactDetails)}
 				</div>
 				<FormControl className="country__select__container">
 					<Select

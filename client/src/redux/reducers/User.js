@@ -11,6 +11,7 @@ const initialAuthState = {
 	cuisine: ["Appetizer", "Dessert", "Main Course", "Salad", "Beverage"],
 	filter: "All",
 	locations: ["United States of America"],
+	userFound: true,
 };
 export const userReducer = (state = initialAuthState, action) => {
 	switch (action.type) {
@@ -24,6 +25,7 @@ export const userReducer = (state = initialAuthState, action) => {
 				details: action.value.details,
 				userId: action.value.userId,
 				userRole: action.value.role == "customer" ? 0 : 1,
+				userFound: true,
 			};
 		}
 		case "RESET_USER": {
@@ -39,6 +41,12 @@ export const userReducer = (state = initialAuthState, action) => {
 			return {
 				...state,
 				filter: action.value,
+			};
+		}
+		case "SET__USER__FOUND": {
+			return {
+				...state,
+				userFound: false,
 			};
 		}
 		default:

@@ -8,6 +8,8 @@ const methodOverride = require("method-override");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const fileUpload = require("../middleware/file-upload.js");
+const User = require("../models/User.js");
+const HttpError = require("../models/http-error.js");
 router.post(
 	"/login",
 	//  [
@@ -21,8 +23,13 @@ router.post(
 				throw err;
 			}
 			console.log("routess...." + user);
-			if (!user) res.send("No user exists");
-			else {
+			if (!user) {
+				const error = new HttpError(
+					"User not found " +
+					500
+				);
+				return res.send(404,error);
+			} else {
 				req.logIn(user, (err) => {
 					if (err) throw err;
 					return next();

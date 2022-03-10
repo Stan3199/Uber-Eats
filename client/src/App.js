@@ -6,7 +6,10 @@ import Customer from "./components/Customer/Customer";
 import Admin from "./components/Admin/Admin";
 import Login from "./components/Login/Login";
 import { resetUser } from "./redux/actions/UserActions";
-
+// Text.defaultProps = {
+// 	...(Text.defaultProps || {}),
+// 	allowFontScaling: false,
+// };
 const App = () => {
 	const userData = useSelector((state) => state.user);
 	const dispatch = useDispatch();

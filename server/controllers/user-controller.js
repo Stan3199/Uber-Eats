@@ -10,10 +10,10 @@ const {
 } = require("../firebase");
 
 const login = async (req, res, next) => {
-	console.log("node logging..");
+	console.log("node logging..", req.body.email.toLowerCase());
 	try {
 		let userAuthenticated = await User.findOne({
-			emailId: req.body.email,
+			emailId: req.body.email.toLowerCase(),
 		});
 		var token = jwt.sign(
 			{
@@ -48,7 +48,9 @@ const signUp = async (req, res, next) => {
 			const error = new HttpError("Data Missing, please try again.", 500);
 			return next(error);
 		}
-		var existingUser = await User.findOne({ emailId: emailId });
+		var existingUser = await User.findOne({
+			emailId: emailId.toLowerCase(),
+		});
 		console.log(existingUser);
 		if (existingUser) {
 			const error = new HttpError(
@@ -60,7 +62,7 @@ const signUp = async (req, res, next) => {
 		const salt = await bcrypt.genSalt(10);
 		password = await bcrypt.hash(password, salt);
 		const newUser = new User({
-			emailId,
+			emailId: emailId.toLowerCase(),
 			password,
 			name,
 			role,
@@ -72,8 +74,10 @@ const signUp = async (req, res, next) => {
 				state: "",
 				country: "United States of America",
 				nickname: "",
-				contact: location != "" ? location : "US",
+				contact: "",
 				About: "",
+				rating: 4.2,
+				deliveryFee:12
 			},
 		});
 		var createdUser = await newUser.save();
@@ -214,7 +218,7 @@ const editProfilePhoto = async (req, res, next) => {
 			async (file) => {
 				existingUser.details.profilepic = file[0].metadata.mediaLink;
 				existingUser.details.imageKey = file[0].metadata.id;
-				console.log("existing user....>>>",existingUser);
+				console.log("existing user....>>>", existingUser);
 				await existingUser.save();
 				return res.send(existingUser);
 			}

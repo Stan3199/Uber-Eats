@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser, registerUser } from "../../redux/actions/UserActions";
 
 import "./Login.css";
+import swal from "sweetalert";
 
 const Login = () => {
 	const userData = useSelector((state) => state.user);
@@ -27,17 +28,33 @@ const Login = () => {
 		setloginMehod(!loginMehod);
 	};
 	const handleSubmit = async () => {
-		loginMehod
-			? await dispatch(loginUser(userEmail, userPassword))
-			: await dispatch(
-					registerUser(
-						userName,
-						userEmail,
-						userPassword,
-						userrole,
-						userLocation
-					)
-			  );
+		if (loginMehod) {
+			if (!userEmail || !userPassword) {
+				swal("Please enter all the fields");
+				return;
+			}
+			await dispatch(loginUser(userEmail, userPassword));
+		} else {
+			if (
+				!userName ||
+				!userEmail ||
+				!userPassword ||
+				!userrole ||
+				!userLocation
+			) {
+				swal("Please enter all the fields");
+				return;
+			}
+			await dispatch(
+				registerUser(
+					userName,
+					userEmail,
+					userPassword,
+					userrole,
+					userLocation
+				)
+			);
+		}
 	};
 
 	return (
@@ -145,7 +162,13 @@ const Login = () => {
 								</FormControl>
 							)}
 						</div>
-
+						<div
+							className={`error__section ${
+								!userData.userFound && "showerror"
+							}`}
+						>
+							No user found, please enter your credentials again
+						</div>
 						<Button className="next__button" onClick={handleSubmit}>
 							Submit
 						</Button>

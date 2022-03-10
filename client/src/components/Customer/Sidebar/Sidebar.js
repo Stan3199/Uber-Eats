@@ -21,7 +21,6 @@ const Sidebar = () => {
 	const customerData = useSelector((state) => state.customer);
 	const userData = useSelector((state) => state.user);
 
-	console.log(customerData);
 	const toggleDrawer = (event) => {
 		if (
 			event.type === "keydown" &&

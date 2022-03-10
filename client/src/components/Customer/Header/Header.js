@@ -134,6 +134,7 @@ const Header = () => {
 	const handleSearch = (e) => {
 		setsearchOpen(true);
 		console.log(e.target.value);
+		console.log(searchContent)
 		setsearchResult(
 			searchContent.filter(
 				(item) =>
@@ -159,11 +160,11 @@ const Header = () => {
 					(rest) => rest._id == res.linkto
 				)[0]
 			)
-		).then(()=>{
-			let fetchRest =  customerData.restaurants.filter(
-                                        (rest) => rest._id == res.linkto
-                                )[0]
-			dispatch(getMenu(fetchRest._id, userData.token))
+		).then(() => {
+			let fetchRest = customerData.restaurants.filter(
+				(rest) => rest._id == res.linkto
+			)[0];
+			dispatch(getMenu(fetchRest._id, userData.token));
 		});
 		history.push("/RestaurantStore/" + res.linkto);
 		setsearchOpen(false);
@@ -336,7 +337,7 @@ const Header = () => {
 						</div>
 					</div>
 					<div>
-						<Form className="d-flex">
+						<Form onSubmit={(e)=>e.preventDefault()} className="d-flex">
 							<Search className="search">
 								<SearchIconWrapper>
 									<SearchIcon />
@@ -371,12 +372,13 @@ const Header = () => {
 											</div>
 											<div className="search__item__main__info">
 												<div className="item__name">
-													{res.name} • {res.type} {res.location && "•"}{" "} {res.location} 
+													{res.name} • {res.type}{" "}
+													{res.location && "•"}{" "}
+													{res.location}
 												</div>
 												<div className="item__description">
 													{res.desc}
 												</div>
-	
 											</div>
 										</div>
 										<div className="search__divider">

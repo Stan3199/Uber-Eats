@@ -34,8 +34,7 @@ export const updateContactDetailsRest =
 		try {
 			var instance = Axios.create();
 			instance.defaults.headers.common = {};
-
-			instance
+			await instance
 				.post(
 					localAddress + "restaurant/updateContactInfo",
 					{
@@ -52,22 +51,6 @@ export const updateContactDetailsRest =
 					console.log(res);
 					return true;
 				});
-
-			// await Axios({
-			// 	method: "POST",
-			// 	withCredentials: true,
-			// 	headers: {
-			// 		authorization: "Bearer " + token,
-			// 		rid,
-			// 	},
-			// 	data: {
-			// 		contactDetails: cinf,
-			// 	},
-			// 	url: localAddress + "restaurant/updateContactInfo",
-			// }).then((res) => {
-			// 	console.log(res);
-			// 	return true;
-			// });
 		} catch (err) {
 			console.log(err);
 			return false;

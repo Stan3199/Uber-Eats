@@ -13,6 +13,7 @@ const initialAuthState = {
 	cart: {},
 	orders: [],
 	serviceMode: "Delivery",
+	categorySelected:"All"
 };
 export const customerReducer = (state = initialAuthState, action) => {
 	console.log(action);
@@ -93,6 +94,12 @@ export const customerReducer = (state = initialAuthState, action) => {
 			return {
 				...state,
 				addresses: [...state.addresses, action.value],
+			};
+		}
+		case "SET__USER__CATEGORY__SELECTED": {
+			return {
+				...state,
+				categorySelected: action.value,
 			};
 		}
 		case "DELETE_ADDRESS": {

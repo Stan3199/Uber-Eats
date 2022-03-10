@@ -48,7 +48,7 @@ const LandingPage = () => {
 		dispatch(logOutUser(userData.token));
 	};
 
-	const handlePhotoUpdate =async () => {
+	const handlePhotoUpdate = async () => {
 		const formData = new FormData();
 		console.log(userData);
 		formData.append("_id", userData.userId);
@@ -85,7 +85,11 @@ const LandingPage = () => {
 			>
 				<Box className="photo__box__main">
 					{userData.details?.profilepic ? (
-						<img className="profile__pic__img" style={{ objectFit: "cover" }} src={restImage} />
+						<img
+							className="profile__pic__img"
+							style={{ objectFit: "cover" }}
+							src={restImage}
+						/>
 					) : (
 						<AccountBoxIcon className="profile__photo" />
 					)}
@@ -114,6 +118,7 @@ const LandingPage = () => {
 					</div>
 				</Box>
 			</Modal>
+			{}
 			<BasicDetailsModal
 				modal={basicModal}
 				basicDetails={{
@@ -131,6 +136,7 @@ const LandingPage = () => {
 						userData.details.contact.replace(/\D/g, "")
 					),
 					country: userData.details.country,
+					deliveryFee: userData.details.deliveryFee,
 				}}
 				updateModal={(val) => setcontactModal(val)}
 			/>
@@ -244,7 +250,7 @@ const LandingPage = () => {
 								</div>
 							</div>
 						</div>
-						<div style={{ paddingTop: "20px" }}>
+						<div>
 							<div className="accordion__landing__main">
 								<div
 									aria-controls="panel1a-content"
@@ -252,7 +258,7 @@ const LandingPage = () => {
 									className="accordion__header__landing"
 								>
 									<div>
-										<b>Contact</b>
+										<b>Contact & Delivery</b>
 									</div>
 									<div
 										className="edit__landing__container"
@@ -283,6 +289,24 @@ const LandingPage = () => {
 												style={{ paddingTop: "10px" }}
 											>
 												{userData.details.country}
+											</div>
+										</div>
+										<div className="details3">
+											<div
+												className="details-label"
+												style={{ paddingTop: "20px" }}
+												className="details-label"
+											>
+												Delivery Fee
+											</div>
+											<div
+												className="details-value"
+												style={{ paddingTop: "10px" }}
+											>
+												{userData.details.deliveryFee &&
+													"$" +
+														userData.details
+															.deliveryFee}
 											</div>
 										</div>
 									</div>

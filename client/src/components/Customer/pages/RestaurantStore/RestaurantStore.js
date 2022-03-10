@@ -50,7 +50,6 @@ const RestaurantStore = () => {
 		setDish(Dish);
 		setmodal(true);
 	};
-	console.log(customerData);
 	const handleCart = () => {
 		// dispatch(addItemTocard())
 		if (
@@ -96,7 +95,9 @@ const RestaurantStore = () => {
 		setnewOrderModal(false);
 	};
 
-	const handleCategory = () => {};
+	const handleCategory = (category) => {
+		dispatch({ type: "SET__USER__CATEGORY__SELECTED", value: category });
+	};
 	return (
 		<div className="restaraunt-main">
 			<Modal
@@ -179,6 +180,9 @@ const RestaurantStore = () => {
 						{customerData.currRestaurant?.name}
 					</div>
 					<div className="restaurant__description">
+						{customerData.currRestaurant?.details?.about}
+					</div>
+					<div className="restaurant__description">
 						{customerData.currRestaurant?.details?.description}
 					</div>
 				</div>
@@ -194,6 +198,7 @@ const RestaurantStore = () => {
 					</div>
 				))}
 			</div>
+			{console.log(customerData)}
 			<Divider className="divider__restaurant" />
 			<Menu modal={(item) => handleModal(item)} />
 		</div>

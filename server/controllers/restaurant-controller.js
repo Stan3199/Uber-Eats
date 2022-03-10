@@ -265,7 +265,8 @@ const updateContactInfo = async (req, res, next) => {
 		if (!existingRest) throw new Error("No restaurant found");
 		existingRest.details.contact = contactDetails.contact;
 		existingRest.details.country = contactDetails.country;
-
+		existingRest.details.deliveryFee = contactDetails.deliveryFee;
+		console.log("change user..>>>>.", existingRest);
 		let savedRest = await existingRest.save();
 		return res.send(savedRest);
 	} catch (err) {

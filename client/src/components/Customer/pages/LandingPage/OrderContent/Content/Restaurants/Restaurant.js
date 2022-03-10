@@ -62,6 +62,26 @@ const Restaurants = () => {
 										image={restaurant.details.profilepic}
 										alt="Paella dish"
 									/>
+
+									<CardContent>
+										<Typography
+											variant="body2"
+											color="text.secondary"
+											className="rest__content__body"
+										>
+											<div className="rest__top__content">
+												<div className="rest__name__card__content">
+													{restaurant.name}
+												</div>
+												<div className="rest__rating__card__content">
+													{restaurant.details?.rating}
+												</div>
+											</div>
+											<div className="rest__fee__card__content">
+												{restaurant.details?.deliveryFee&&'$'+restaurant.details.deliveryFee+" Delivery Fee"}
+											</div>
+										</Typography>
+									</CardContent>
 									<CardActions disableSpacing>
 										<IconButton
 											className="fav-icon"
@@ -80,19 +100,6 @@ const Restaurants = () => {
 										</IconButton>
 									</CardActions>
 								</div>
-								<CardContent>
-									<Typography
-										variant="body2"
-										color="text.secondary"
-									>
-										<div>
-											<p>{restaurant.name}</p>
-										</div>
-										<div>
-											<p>{restaurant.rating}</p>
-										</div>
-									</Typography>
-								</CardContent>
 							</Card>
 						</Link>
 					))}

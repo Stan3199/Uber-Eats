@@ -17,7 +17,14 @@ export const loginUser = (ususerEmail, userPassworder) => async (dispatch) => {
 					"Content-Type": "application/json",
 				}
 			)
-			.then((res) => dispatch({ type: "SET_USER", value: res.data }));
+			.then((res) => {
+				console.log(res);
+				dispatch({ type: "SET_USER", value: res.data });
+			})
+			.catch((err) => {
+				dispatch({ type: "SET__USER__FOUND" });
+				console.log(err);
+			});
 	} catch (err) {
 		console.log(err);
 		return false;
