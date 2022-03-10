@@ -4,6 +4,7 @@ const { firebaseUploadFile } = require("../firebase");
 const Dishes = require("../models/Dishes");
 const HttpError = require("../models/http-error");
 const User = require("../models/User");
+const Orders = require("../models/Orders");
 
 const getRestaurants = async (req, res, next) => {
 	try {
@@ -192,35 +193,13 @@ const addDishToMenu = async (req, res, next) => {
 };
 
 const addOrder = async (req, res, next) => {
+	const order = req.body.order;
 	try {
-		const dish = req.body;
-		let dishExists = await Dishes.findOne({ name: dish.name });
-		if (dishExists) {
-			throw new Error("Dish already exists with same name");
-		}
-		const s3 = new AWS.S3({
-			accessKeyId: "AKIA5AIAYSS4JYC7UMMB",
-			secretAccessKey: "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",
-		});
-		console.log(dish);
-		const fileContent = fs.readFileSync(req.file.path);
-		const params = {
-			Bucket: "ubereatsapp",
-			Key: "ubereats/Images/dishes/dish" + dish.name + ".jpg",
-			Body: fileContent,
-		};
-		console.log(params);
-		await s3.upload(params, async (err, data) => {
-			console.log("after trying to upload...", data, err);
-			if (err) throw new Error(err);
-			dish.images = [];
-			dish.images.push(data.Location);
-			dish.imageKey = data.key;
-			const newDish = new Dishes(dish);
-			console.log(newDish);
-			await newDish.save();
-			return res.send(200);
-		});
+		let newOrder = new Orders(order);
+		console.log("before", newOrder);
+		let addedOrder = await newOrder.save();
+		console.log("after", addedOrder);
+		res.send(addedOrder);
 	} catch (err) {
 		const error = new HttpError(
 			"Couldn't add order. Please try again Error: " + err.message,
